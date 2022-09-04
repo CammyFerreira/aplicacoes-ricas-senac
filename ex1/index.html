@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player</title>
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <video width="500px" id="meuVideo">
+        <source src="video.mp4">
+    </video>
+
+    <div>
+        <meter value="" id="meter" class="meter"></meter>
+    </div>
+    <div>
+        <button onClick="document.getElementById('meuVideo').play();" class="playClass">Play</button>
+        <button onClick="document.getElementById('meuVideo').pause();" class="pauseClass">Pause</button>
+    </div>
+    <div id="timeText" class="tempo"></div>
+</body>
+    <script src="javascript.js"></script>
+</html>
