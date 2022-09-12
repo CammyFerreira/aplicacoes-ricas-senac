@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        video{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <video src="video.mp4" id="video"></video>
+    <meter id="progress"></meter>
+    <button id="btnPlay">Play</button>
+    <button id="btnPause" >Pause</button>
+    <p id="duracao"></p>
+
+    <script>
+        let video = document.getElementById('video');
+        let btnPlay = document.getElementById('btnPlay');
+        let btnPause = document.getElementById('btnPause');
+        let progress = document.getElementById('progress');
+        let duracao = document.getElementById('duracao');
+        let tempoAtual;
+
+        function play(){
+            video.play();
+        }
+
+        function pause(){
+            video.pause();
+        }
+
+        btnPlay.onclick = play;
+        btnPause.onclick = pause;
+
+        video.addEventListener('canplay', ()=>{
+            progress.max = video.duration;
+            duracao.innerText = video.duration;
+        });
+
+        video.addEventListener('timeupdate', ()=>{
+            progress.value = video.currentTime;
+            tempoAtual.innerText = video.currentTime;
+        });
+
+    </script>
+</body>
+</html>
