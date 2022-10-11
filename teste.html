@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        if("geolocation" in navigator){
+            navigator.geolocation.getCurrentPosition(function(position){
+                let latitude = position.coords.latitude;
+                let longitude = position.coords.longitude;
+
+                let request = new XMLHttpRequest();
+
+                request.open("GET", "http://dev.virtualearth.net/REST/v1/Locations/" + latitude + "," + longitude + "?key=AoQ_mtDtzUckrqfN0YQ0kqq1MJjnrE3OYbggLDWoe6cECT7Azp15eiCYOVEcsJdI")
+                
+                request.addEventListener("readystatechange", function(){
+                    if(request.status == 200 && request.readyState == 4){
+
+                        let responseJSON = JSON.parse(request.responseText);
+                        console.log('responseJSON', responseJSON.resourceSets[0].resources[0].name);
+                    }
+                });
+                
+                request.send();
+
+            }, function(error){
+                console.log(error);
+            })
+        }else{
+            alert("não");
+        }
+    </script>
+</body>
+</html>
