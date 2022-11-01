@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ado4</title>
+</head>
+<body>
+    <canvas id="meucanvas" height="320" width="640"></canvas>
+    <canvas id="canvas" height="320" width="640"></canvas>
+    <canvas id="canvas2" height="320" width="640"></canvas>
+    
+    <script>
+
+        let canvas1 = document.getElementById('meucanvas');
+        let ctx1 = canvas1.getContext('2d');
+        ctx1.fillStyle = 'rgb(0, 0, 255)';
+        ctx1.fillRect(50,50,50,50);
+        ctx1.fill();
+
+        let canvas2 = document.getElementById('canvas');
+        let ctx2 = canvas2.getContext('2d');
+        ctx2.beginPath();
+        ctx2.moveTo(100,100);
+        ctx2.lineTo(150,150);
+        ctx2.lineTo(50,150);
+        ctx2.lineTo(100,100);
+        ctx2.closePath();
+        
+        ctx2.strokeStyle = 'rgb(0, 0, 255)';
+        ctx2.stroke();
+        ctx2.fillStyle = 'rgb(0, 0, 255)';
+        ctx2.fill();
+
+
+        let img = document.createElement('img');
+
+        img.addEventListener("load", (e)=>{
+            ctx3.drawImage(img, 50,50,100,100);
+        });
+        
+        img.src = 'cat.jpg';
+        let canvas3 = document.getElementById('canvas2');
+        let ctx3 = canvas3.getContext('2d');
+        
+
+    </script>
+</body>
+</html>
+
+<!-- 3d usa o openGL 
+    definir altura e largura do canvas e manipular utilizando o javascript
+    arc - circulo / diametro, completude, comprimeto em radiano e true ou false o sentido
+    criar curvas a partir de 4 pontos - bezierCurveTo()/quadraticCurveTo()
+
+-->
