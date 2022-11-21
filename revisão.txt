@@ -1,0 +1,108 @@
+selecionar elementos a partir de determinado atributo:
+<input disabled>
+
+css -> 
+input[disabled]
+
+root -> selecionar os elementos principais da página. tag html, body etc
+
+selecionar um determinado elemento filho a partir de uma ordem:
+<div id="elemento">
+<ul></ul>
+<li></li>
+<li></li>
+</div>
+
+css->
+#elemento > li: nthchild(índice){}
+
+selecionar filho direto do elemento:
+#lista > li {}
+
+gradiente:
+background-image: linear-gradient(pelo menos 2 cores aqui);
+
+Tranform: manipular a aparencia de um elemento na tela, útil para fazer animações. 
+propriedade que aceita como valor algumas funções:
+scale -  Ex: transform:scale(2), escala proporcionamente
+skew: distorce a partir de angulos
+translate: move o elemento pela tela
+rotate: gira o elemento
+Transition: cria uma transição(animação) de uma mudança de propriedade para outra.
+ex:
+ele: hover{
+  width: 400px;
+  transition: width 2s; //pode escutar todas passando all no lugar do width
+}
+Animação:
+{
+ animation
+}
+@keyframes - quadros chaves de uma animação, toda animação tem um número de 
+quadros. Pode especificar em %
+no elemento falo que tem uma animação com a propriedade animation-name;
+@mediaquery: permite criar CSS condicional, baseado no tipo de dispositivo
+max-width - todo elemento ou dispositivo que tiver ate essa largura cai aqui 
+min-width - todo elemento ou dispositivo que tiver pelo menos essa largura cai aqui 
+
+Flexbox:
+design responsivo. Pai de um elemento html e coloca um container que é flex. Controla os filhos do pai de um elemento.
+flex-direction: direção
+flex-wrap: vão se acomodar na mesma área ou não
+justify-content: alinham horizontalmente
+align-items: como os elementos se posicionam na vertical
+align-content: definem como os elementos devem se alinhar na tela;
+
+Geolocation
+utiliza o objeto geolocation do navigator (permite pegar dados do navegador).
+Pede a localização do usuário. computador de mesa não tem gps ele usa a internet.
+o objeto geolocation tem duas funções:
+navigator.geolocation - permite acessar a API de geolocalização
+navigator.geolocation.getCurrentPosition() - posição naquele momento
+navigator.geolocation.watchPosition() - fica escutando o evento e se houver mudança ele dispara o evento 
+os dois são assíncronos então preciso trabalhar com callback:
+sucesso, erro e opções
+
+getCurrentPosition(function(data){ function(erro){}}) - funções como parâmetros
+
+Canvas
+criar gráficos dinâmicos pelo html sempre por meio de Javascript
+<canvas id="canvas" width="200" height="200">
+
+var canvas = document.getElementById('canvas');
+car ctx = canvas.getContext('2d'); //todo canvas depende de um contexto(2d), somente consigo desenhar quando obtenho o contexto
+Utilizo funções que vão determinando o que eu quero obter;
+fillStyle - recebe um RGB
+fillRect - recebe x, y altura e largura de um triângulo;
+
+SVG
+utiliza xml, cria gráfico vetorias. Manipule as imagens sem que ela distorçam e percam qualidade.
+viewBox - determina o x, y, largura e altura
+<svg id="" viewBox=""></svg>
+
+Histórico:
+historico de navegação. salvar estados da minha aplicação
+window.history
+métodos:
+back() - voltar um estado da aplicação
+forward() - avança um estado 
+go() - (passa o número de estados que quero voltar), voltar para onde 1 ou mais estados atrás
+pushState() - permite criar um novo estado da minha aplicação
+replaceState() - permite trocar o estado atual por outro.
+
+Web Workers:
+Threads - contextos que permitem execução de tarefas paralelas
+programas com uma única thread não podem realizar mais de uma tarefa ao mesmo tempo, podendo travar a página;
+Web workers são mecanismos que peritem que uma operação de um dado script seja executado em uma thread diferente da
+thread principal da aplicação web.
+new Worker(caminho de um script). Todo web worker tem que está em um arquivo separado.
+Utiliza comunicação por mensagem do web worker com a página:
+Página > Worker
+Worker > Página
+
+worker.postMessage - enviar a mensagem
+worker.onMessage - receber a mensagem
+
+
+
+ 
